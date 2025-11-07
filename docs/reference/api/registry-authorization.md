@@ -27,9 +27,7 @@ GET /v0/servers HTTP/1.1
 Host: registry.example.com
 
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer realm="MCP Registry",
-                         scope="registry:read",
-                         resource_metadata="https://registry.example.com/.well-known/oauth-protected-resource"
+WWW-Authenticate: Bearer realm="MCP Registry", scope="registry:read", resource_metadata="https://registry.example.com/.well-known/oauth-protected-resource"
 ```
 
 (but for compatibility with the MCP spec, registries MAY serve metadata at a well-known URI)
@@ -135,9 +133,7 @@ When a user attempts an operation requiring additional permissions, registries S
 
 ```http
 HTTP/1.1 403 Forbidden
-WWW-Authenticate: Bearer error="insufficient_scope",
-                         scope="registry:read registry:write",
-                         resource_metadata="https://registry.example.com/.well-known/oauth-protected-resource"
+WWW-Authenticate: Bearer error="insufficient_scope", scope="registry:read registry:write", resource_metadata="https://registry.example.com/.well-known/oauth-protected-resource"
 ```
 
 ## Benefits
@@ -150,7 +146,7 @@ WWW-Authenticate: Bearer error="insufficient_scope",
 
 ## Comparison with Official Registry Authentication
 
-The official modelcontextprotocol.io registry uses a custom JWT-based authentication system for publishing servers. Reading servers remaings public and does not require authentication.
+The official modelcontextprotocol.io registry uses a custom JWT-based authentication system for publishing servers. Reading servers remains public and does not require authentication.
 
 We may in future look at moving the official registry to this standardized OAuth 2.1-based system for consistency.
 
