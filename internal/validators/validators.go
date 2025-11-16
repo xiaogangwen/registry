@@ -59,8 +59,8 @@ func ValidateServerJSON(serverJSON *apiv0.ServerJSON) error {
 	if serverJSON.Schema == "" {
 		return fmt.Errorf("$schema field is required")
 	}
-	if !strings.Contains(serverJSON.Schema, model.CurrentSchemaVersion) {
-		return fmt.Errorf("schema version %s is not supported. Please use schema version %s", serverJSON.Schema, model.CurrentSchemaVersion)
+	if !model.IsSupportedSchemaVersion(serverJSON.Schema) {
+		return fmt.Errorf("schema version %s is not supported. Supported versions: %s", serverJSON.Schema, strings.Join(model.SupportedSchemaVersions, ", "))
 	}
 
 	// Validate server name exists and format
