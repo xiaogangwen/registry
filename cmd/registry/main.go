@@ -11,6 +11,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/modelcontextprotocol/registry/data"
 	"github.com/modelcontextprotocol/registry/internal/api"
 	v0 "github.com/modelcontextprotocol/registry/internal/api/handlers/v0"
 	"github.com/modelcontextprotocol/registry/internal/config"
@@ -86,8 +87,29 @@ func main() {
 		defer cancel()
 
 		importerService := importer.NewService(registryService)
-		if err := importerService.ImportFromPath(ctx, cfg.SeedFrom); err != nil {
-			log.Printf("Failed to import seed data: %v", err)
+		
+		// Check if SeedFrom is "embedded" - use embedded data
+		if cfg.SeedFrom == "embedded" {
+			// Write embedded seed data to temp file
+			tempFile, err := os.CreateTemp("", "seed-*.json")
+			if err != nil {
+				log.Printf("Failed to create temp file for embedded seed: %v", err)
+			} else {
+				defer os.Remove(tempFile.Name())
+				if _, err := tempFile.Write(data.GetSeedJSON()); err != nil {
+					log.Printf("Failed to write embedded seed data: %v", err)
+				} else {
+					tempFile.Close()
+					if err := importerService.ImportFromPath(ctx, tempFile.Name()); err != nil {
+						log.Printf("Failed to import seed data: %v", err)
+					}
+				}
+			}
+		} else {
+			// Use path/URL specified
+			if err := importerService.ImportFromPath(ctx, cfg.SeedFrom); err != nil {
+				log.Printf("Failed to import seed data: %v", err)
+			}
 		}
 	}
 

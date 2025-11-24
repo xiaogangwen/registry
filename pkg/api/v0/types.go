@@ -31,6 +31,7 @@ type ServerMeta struct {
 	PublisherProvided map[string]interface{} `json:"io.modelcontextprotocol.registry/publisher-provided,omitempty" doc:"Publisher-provided metadata for downstream registries"`
 }
 
+
 type ServerJSON struct {
 	Schema      string            `json:"$schema" required:"true" minLength:"1" format:"uri" doc:"JSON Schema URI for this server.json format" example:"https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json"`
 	Name        string            `json:"name" minLength:"3" maxLength:"200" pattern:"^[a-zA-Z0-9.-]+/[a-zA-Z0-9._-]+$" doc:"Server name in reverse-DNS format. Must contain exactly one forward slash separating namespace from server name." example:"io.github.user/weather"`

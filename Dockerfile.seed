@@ -1,0 +1,14 @@
+# Use the ko-built image as base
+FROM mcprdevacr.azurecr.io/registry:latest AS kobase
+
+# Use a build stage to copy the binary and add data
+FROM cgr.dev/chainguard/static:latest
+
+# Copy the binary from ko-built image
+COPY --from=kobase /ko-app/github.com/modelcontextprotocol/registry/cmd/registry /ko-app/registry
+
+# Copy the data directory
+COPY data/ /ko-app/data/
+
+# Set the entrypoint
+ENTRYPOINT ["/ko-app/registry"]

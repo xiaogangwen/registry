@@ -53,11 +53,17 @@ func (s *Service) ImportFromPath(ctx context.Context, path string) error {
 	if len(failedCreations) > 0 {
 		log.Printf("Import completed with errors: %d servers created successfully, %d servers failed",
 			len(successfullyCreated), len(failedCreations))
+		if len(successfullyCreated) > 0 {
+			log.Printf("Successfully created servers: %v", successfullyCreated)
+		}
 		log.Printf("Failed servers: %v", failedCreations)
 		return fmt.Errorf("failed to import %d servers", len(failedCreations))
 	}
 
 	log.Printf("Import completed successfully: all %d servers created", len(successfullyCreated))
+	if len(successfullyCreated) > 0 {
+		log.Printf("Successfully created servers: %v", successfullyCreated)
+	}
 	return nil
 }
 

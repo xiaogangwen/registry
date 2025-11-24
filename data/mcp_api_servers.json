@@ -1,0 +1,1488 @@
+[
+  {
+    "description": "Convert various file formats (PDF, Word, Excel, images, audio) to Markdown.",
+    "name": "com.github/markitdown",
+    "packages": [
+      {
+        "identifier": "markitdown-mcp",
+        "registryType": "pypi",
+        "runtimeHint": "binary",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "0.0.1a4"
+      }
+    ],
+    "repository": {
+      "id": "888092115",
+      "source": "github",
+      "url": "https://github.com/microsoft/markitdown"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Get up-to-date, version-specific documentation and code examples from any library or framework.",
+    "name": "com.context7/context7",
+    "remotes": [
+      {
+        "headers": [
+          {
+            "value": "{context7_api_key}",
+            "variables": {
+              "context7_api_key": {
+                "description": "Context7 API key (optional; increases rate limits). Get one at https://context7.com/dashboard",
+                "isSecret": true
+              }
+            },
+            "name": "CONTEXT7_API_KEY"
+          }
+        ],
+        "type": "sse",
+        "url": "https://mcp.context7.com/mcp"
+      }
+    ],
+    "repository": {
+      "id": "955620917",
+      "source": "github",
+      "url": "https://github.com/upstash/context7"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Official GitHub MCP Server that connects AI tools directly to GitHub's platform. Enables AI agents to read repositories, manage issues and PRs, analyze code, and automate workflows through natural language interactions.",
+    "name": "com.githubcopilot/github-mcp-server",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://api.githubcopilot.com/mcp/"
+      }
+    ],
+    "repository": {
+      "id": "942771284",
+      "source": "github",
+      "url": "https://github.com/github/github-mcp-server"
+    },
+    "version": "0.13.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Automate web browsers using accessibility trees for testing and data extraction.",
+    "name": "com.github/playwright-mcp",
+    "packages": [
+      {
+        "identifier": "@playwright/mcp",
+        "registryType": "npm",
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "0.0.1-seed"
+      }
+    ],
+    "repository": {
+      "id": "952688112",
+      "source": "github",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    },
+    "version": "0.0.1-seed",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Semantic code retrieval & editing tools for coding agents.",
+    "name": "com.github/serena",
+    "packages": [
+      {
+        "identifier": "serena",
+        "packageArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "--context",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "ide-assistant",
+            "type": "positional"
+          }
+        ],
+        "registryType": "pypi",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "--from",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "git+https://github.com/oraios/serena",
+            "type": "positional"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "serena",
+            "type": "positional",
+            "valueHint": "cli"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "start-mcp-server",
+            "type": "positional",
+            "valueHint": "subcommand"
+          }
+        ],
+        "runtimeHint": "uvx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "953683578",
+      "source": "github",
+      "url": "https://github.com/oraios/serena"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Lets your coding agent (such as Gemini, Claude, Cursor or Copilot) control and inspect a live Chrome browser.",
+    "name": "com.github/chrome-devtools-mcp",
+    "packages": [
+      {
+        "identifier": "chrome-devtools-mcp",
+        "packageArguments": [
+          {
+            "description": "Optional: connect to an already-running Chrome (remote debugging / port-forward). Example: http://127.0.0.1:9222",
+            "format": "string",
+            "isRequired": true,
+            "value": "{browser_url}",
+            "variables": {
+              "browser_url": {
+                "description": "Optional: connect to an already-running Chrome (remote debugging / port-forward). Example: http://127.0.0.1:9222",
+                "isRequired": true
+              }
+            },
+            "name": "--browserUrl",
+            "type": "named"
+          },
+          {
+            "description": "Run Chrome headless (true/false). Default: false",
+            "format": "string",
+            "value": "{headless}",
+            "variables": {
+              "headless": {
+                "default": "false",
+                "description": "Run Chrome headless (true/false). Default: false"
+              }
+            },
+            "name": "--headless",
+            "type": "named"
+          },
+          {
+            "description": "Use a temporary user-data-dir (true/false). Default: false",
+            "format": "string",
+            "value": "{isolated}",
+            "variables": {
+              "isolated": {
+                "default": "false",
+                "description": "Use a temporary user-data-dir (true/false). Default: false"
+              }
+            },
+            "name": "--isolated",
+            "type": "named"
+          },
+          {
+            "description": "Chrome channel: stable | canary | beta | dev (default: stable).",
+            "format": "string",
+            "value": "{chrome_channel}",
+            "variables": {
+              "chrome_channel": {
+                "default": "stable",
+                "description": "Chrome channel: stable | canary | beta | dev (default: stable)."
+              }
+            },
+            "name": "--channel",
+            "type": "named"
+          }
+        ],
+        "registryType": "npm",
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "0.0.1-seed"
+      }
+    ],
+    "repository": {
+      "id": "1054793726",
+      "source": "github",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+    },
+    "version": "0.0.1-seed",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Extract web data with Firecrawl",
+    "name": "com.github/firecrawl-mcp-server",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{api_key}",
+            "variables": {
+              "api_key": {
+                "description": "your API key",
+                "isRequired": true,
+                "isSecret": true
+              }
+            },
+            "name": "FIRECRAWL_API_KEY"
+          }
+        ],
+        "identifier": "firecrawl-mcp",
+        "registryType": "npm",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-y",
+            "type": "positional",
+            "valueHint": "noninteractive_mode"
+          }
+        ],
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "899407931",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Control the Unity Editor from MCP clients via a Unity bridge + local Python server.",
+    "name": "com.github/unity-mcp",
+    "packages": [
+      {
+        "identifier": "uv",
+        "registryType": "uv",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "{unity_mcp_server_src}",
+            "variables": {
+              "unity_mcp_server_src": {
+                "description": "Absolute path to the Unity MCP Server 'src' folder installed by the Unity package (e.g., macOS: ~/Library/Application Support/UnityMCP/UnityMcpServer/src; Windows: %USERPROFILE%/AppData/Local/UnityMCP/UnityMcpServer/src; Linux: ~/.local/share/UnityMCP/UnityMcpServer/src).",
+                "isRequired": true
+              }
+            },
+            "name": "--directory",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "run",
+            "type": "positional",
+            "valueHint": "run"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "server.py",
+            "type": "positional",
+            "valueHint": "entrypoint"
+          }
+        ],
+        "runtimeHint": "uv",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "v4.0.0"
+      }
+    ],
+    "repository": {
+      "id": "950564038",
+      "source": "github",
+      "url": "https://github.com/CoplayDev/unity-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Official MCP server for Notion API",
+    "name": "com.notion/notion-mcp-server",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.notion.com/sse"
+      }
+    ],
+    "repository": {
+      "id": "946169991",
+      "source": "github",
+      "url": "https://github.com/makenotion/notion-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Production-ready MCP server connecting AI agents with 40+ Azure services including AI Foundry, AI Search, App Service, Storage, databases, and monitoring tools",
+    "name": "com.github/azure-mcp-server",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{azure_tenant_id}",
+            "variables": {
+              "azure_tenant_id": {
+                "description": "Tenant ID (for service principal / workload identity auth)."
+              }
+            },
+            "name": "AZURE_TENANT_ID"
+          },
+          {
+            "value": "{azure_client_id}",
+            "variables": {
+              "azure_client_id": {
+                "description": "Client ID (service principal or managed identity)."
+              }
+            },
+            "name": "AZURE_CLIENT_ID"
+          },
+          {
+            "value": "{azure_client_secret}",
+            "variables": {
+              "azure_client_secret": {
+                "description": "Client secret (if using service principal secret).",
+                "isSecret": true
+              }
+            },
+            "name": "AZURE_CLIENT_SECRET"
+          },
+          {
+            "value": "{azure_subscription_id}",
+            "variables": {
+              "azure_subscription_id": {
+                "description": "Optional: prefer a specific subscription by default."
+              }
+            },
+            "name": "AZURE_SUBSCRIPTION_ID"
+          },
+          {
+            "value": "{azure_mcp_collect_telemetry}",
+            "variables": {
+              "azure_mcp_collect_telemetry": {
+                "description": "Set to 'false' to opt out of telemetry (default is true)."
+              }
+            },
+            "name": "AZURE_MCP_COLLECT_TELEMETRY"
+          }
+        ],
+        "identifier": "@azure/mcp",
+        "packageArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "server",
+            "type": "positional",
+            "valueHint": "subcommand"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "start",
+            "type": "positional",
+            "valueHint": "subcommand"
+          }
+        ],
+        "registryType": "npm",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-y",
+            "type": "positional",
+            "valueHint": "noninteractive_mode"
+          }
+        ],
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "963038660",
+      "source": "github",
+      "subfolder": "servers/Azure.Mcp.Server",
+      "url": "https://github.com/microsoft/mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Interact with Stripe API",
+    "name": "com.stripe/agent-toolkit",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.stripe.com"
+      }
+    ],
+    "repository": {
+      "id": "886826524",
+      "source": "github",
+      "url": "https://github.com/stripe/agent-toolkit"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Enables clients like GitHub Copilot and other AI agents to bring trusted and up-to-date information directly from Microsoft's official documentation.",
+    "name": "com.microsoft/mcp",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://learn.microsoft.com/api/mcp"
+      }
+    ],
+    "repository": {
+      "id": "998658053",
+      "source": "github",
+      "url": "https://github.com/microsoftdocs/mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Seamlessly integrate with Terraform ecosystem, enabling advanced automation and interaction capabilities for Infrastructure as Code (IaC) development powered by Terraform",
+    "name": "com.github/terraform-mcp-server",
+    "packages": [
+      {
+        "identifier": "hashicorp/terraform-mcp-server",
+        "registryType": "docker",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "run",
+            "type": "positional"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "-i",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "--rm",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "name": "-e",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "value": "TFE_TOKEN={tfe_token}",
+            "variables": {
+              "tfe_token": {
+                "description": "Terraform API Token",
+                "isSecret": true
+              }
+            },
+            "type": "positional",
+            "valueHint": "environment_variable_value"
+          },
+          {
+            "format": "string",
+            "name": "-e",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "value": "TFE_HOSTNAME={tfe_hostname}",
+            "variables": {
+              "tfe_hostname": {
+                "description": "Terraform hostname"
+              }
+            },
+            "type": "positional",
+            "valueHint": "environment_variable_value"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "hashicorp/terraform-mcp-server",
+            "type": "positional"
+          }
+        ],
+        "runtimeHint": "docker",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "969282615",
+      "source": "github",
+      "url": "https://github.com/hashicorp/terraform-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Interact with Azure DevOps services like repositories, work items, builds, releases, test plans, and code search.",
+    "name": "com.github/azure-devops-mcp",
+    "packages": [
+      {
+        "identifier": "@azure-devops/mcp",
+        "packageArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "{ado_org}",
+            "variables": {
+              "ado_org": {
+                "description": "Azure DevOps organization name (e.g., contoso).",
+                "isRequired": true
+              }
+            },
+            "type": "positional",
+            "valueHint": "organization"
+          },
+          {
+            "format": "string",
+            "name": "-d",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "value": "{ado_domain}",
+            "variables": {
+              "ado_domain": {
+                "description": "Repeat to enable specific domains: core, work, work-items, search, test-plans, repositories, wiki, pipelines, advanced-security."
+              }
+            },
+            "isRepeated": true,
+            "type": "positional"
+          }
+        ],
+        "registryType": "npm",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-y",
+            "type": "positional",
+            "valueHint": "noninteractive_mode"
+          }
+        ],
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "984142834",
+      "source": "github",
+      "url": "https://github.com/microsoft/azure-devops-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "MCP server helping models understand your Vite/Nuxt app.",
+    "name": "com.nuxt/nuxt-mcp",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.nuxt.com/sse"
+      }
+    ],
+    "repository": {
+      "id": "946411030",
+      "source": "github",
+      "url": "https://github.com/antfu/nuxt-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters.",
+    "name": "com.github/mongodb-mcp-server",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{mcp_connection_string}",
+            "variables": {
+              "mcp_connection_string": {
+                "description": "MongoDB connection string for direct database connections. Optional, if not set, you'll need to call the connect tool before interacting with MongoDB data.",
+                "isSecret": true
+              }
+            },
+            "name": "MDB_MCP_CONNECTION_STRING"
+          }
+        ],
+        "identifier": "mongodb-mcp-server",
+        "packageArguments": [
+          {
+            "format": "string",
+            "value": "--readOnly",
+            "type": "positional"
+          }
+        ],
+        "registryType": "npm",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-y",
+            "type": "positional",
+            "valueHint": "noninteractive_mode"
+          }
+        ],
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "960484071",
+      "source": "github",
+      "url": "https://github.com/mongodb-js/mongodb-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Extract data from any website with thousands of scrapers, crawlers, and automations on Apify Store \u26a1",
+    "name": "com.apify/apify-mcp-server",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.apify.com"
+      }
+    ],
+    "repository": {
+      "id": "911256711",
+      "source": "github",
+      "url": "https://github.com/apify/apify-mcp-server"
+    },
+    "version": "0.0.1-seed",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "MCP server for connecting to Elasticsearch data and indices. Supports search queries, mappings, ES|QL, and shard information through natural language interactions.",
+    "name": "com.github/mcp-server-elasticsearch",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "description": "your elasticsearch url",
+            "value": "{es_url}",
+            "variables": {
+              "es_url": {
+                "description": "your elasticsearch url",
+                "isRequired": true
+              }
+            },
+            "name": "ES_URL"
+          },
+          {
+            "description": "your api key",
+            "value": "{es_api_key}",
+            "variables": {
+              "es_api_key": {
+                "description": "your api key",
+                "isRequired": true,
+                "isSecret": true
+              }
+            },
+            "name": "ES_API_KEY"
+          }
+        ],
+        "identifier": "docker.elastic.co/mcp/elasticsearch",
+        "registryType": "docker",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "run",
+            "type": "positional",
+            "valueHint": "docker_cmd"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "-i",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "--rm",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "-e",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "$ES_URL",
+            "type": "positional",
+            "valueHint": "env_var_name"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "-e",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "$ES_API_KEY",
+            "type": "positional",
+            "valueHint": "env_var_name"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "docker.elastic.co/mcp/elasticsearch",
+            "type": "positional",
+            "valueHint": "image"
+          },
+          {
+            "format": "string",
+            "value": "stdio",
+            "type": "positional",
+            "valueHint": "transport_mode"
+          }
+        ],
+        "runtimeHint": "docker",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "953992846",
+      "source": "github",
+      "url": "https://github.com/elastic/mcp-server-elasticsearch"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "MCP server for interacting with Neon Management API and databases",
+    "name": "tech.neon/mcp-server-neon",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.neon.tech/sse"
+      }
+    ],
+    "repository": {
+      "id": "896203400",
+      "source": "github",
+      "url": "https://github.com/neondatabase/mcp-server-neon"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Retrieve and analyze application errors and performance issues from Sentry projects.",
+    "name": "dev.sentry/sentry-mcp",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://mcp.sentry.dev/sse"
+      }
+    ],
+    "repository": {
+      "id": "957245447",
+      "source": "github",
+      "url": "https://github.com/getsentry/sentry-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Provides data retrieval capabilities powered by Chroma, enabling AI models to create collections over generated data and user inputs, and retrieve that data using vector search, full text search, metadata filtering, and more.",
+    "name": "com.github/chroma-mcp",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{chroma_client_type}",
+            "variables": {
+              "chroma_client_type": {
+                "description": "Client type: ephemeral (default), persistent, cloud, or http."
+              }
+            },
+            "name": "CHROMA_CLIENT_TYPE"
+          },
+          {
+            "value": "{chroma_dotenv_path}",
+            "variables": {
+              "chroma_dotenv_path": {
+                "description": "Optional path to .env (defaults to ./.chroma_env)."
+              }
+            },
+            "name": "CHROMA_DOTENV_PATH"
+          },
+          {
+            "value": "{chroma_data_dir}",
+            "variables": {
+              "chroma_data_dir": {
+                "description": "Data directory for persistent client."
+              }
+            },
+            "name": "CHROMA_DATA_DIR"
+          },
+          {
+            "value": "{chroma_tenant}",
+            "variables": {
+              "chroma_tenant": {
+                "description": "Chroma Cloud tenant ID."
+              }
+            },
+            "name": "CHROMA_TENANT"
+          },
+          {
+            "value": "{chroma_database}",
+            "variables": {
+              "chroma_database": {
+                "description": "Chroma Cloud database name."
+              }
+            },
+            "name": "CHROMA_DATABASE"
+          },
+          {
+            "value": "{chroma_api_key}",
+            "variables": {
+              "chroma_api_key": {
+                "description": "Chroma Cloud API key.",
+                "isSecret": true
+              }
+            },
+            "name": "CHROMA_API_KEY"
+          },
+          {
+            "value": "{chroma_host}",
+            "variables": {
+              "chroma_host": {
+                "description": "Self-hosted Chroma host."
+              }
+            },
+            "name": "CHROMA_HOST"
+          },
+          {
+            "value": "{chroma_port}",
+            "variables": {
+              "chroma_port": {
+                "description": "Self-hosted Chroma port."
+              }
+            },
+            "name": "CHROMA_PORT"
+          },
+          {
+            "value": "{chroma_custom_auth}",
+            "variables": {
+              "chroma_custom_auth": {
+                "description": "Custom auth credentials for self-hosted Chroma.",
+                "isSecret": true
+              }
+            },
+            "name": "CHROMA_CUSTOM_AUTH_CREDENTIALS"
+          },
+          {
+            "value": "{chroma_ssl}",
+            "variables": {
+              "chroma_ssl": {
+                "description": "Use SSL (true/false) for self-hosted HTTP."
+              }
+            },
+            "name": "CHROMA_SSL"
+          }
+        ],
+        "identifier": "chroma-mcp",
+        "registryType": "pypi",
+        "runtimeHint": "uvx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "v0.2.6"
+      }
+    ],
+    "repository": {
+      "id": "930632525",
+      "source": "github",
+      "url": "https://github.com/chroma-core/chroma-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Enable AI agents to work reliably - giving them secure access to structured data, tools to take action, and the context needed to make smart decisions.",
+    "name": "com.github/mcp",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{monday_api_token}",
+            "variables": {
+              "monday_api_token": {
+                "description": "Your monday.com API token (can also be passed with -t/--token).",
+                "isRequired": true,
+                "isSecret": true
+              }
+            },
+            "name": "monday_token"
+          }
+        ],
+        "identifier": "@mondaydotcomorg/monday-api-mcp",
+        "registryType": "npm",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-y",
+            "type": "positional"
+          }
+        ],
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "961296260",
+      "source": "github",
+      "url": "https://github.com/mondaycom/mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Local image processing with computer vision capabilities including object detection, OCR, image editing, and transformations.",
+    "name": "com.github/imagesorcery-mcp",
+    "packages": [
+      {
+        "identifier": "imagesorcery-mcp",
+        "registryType": "imagesorcery-mcp",
+        "runtimeHint": "imagesorcery-mcp",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "0.11.4"
+      }
+    ],
+    "repository": {
+      "id": "982160482",
+      "source": "github",
+      "url": "https://github.com/sunriseapps/imagesorcery-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "An experimental MCP server implementation for Azure AI Foundry that exposes unified tools for models, knowledge, evaluation and deployment.",
+    "name": "com.github/mcp-foundry",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{github_token}",
+            "variables": {
+              "github_token": {
+                "description": "Optional: GitHub token for testing models for free with rate limits.",
+                "isSecret": true
+              }
+            },
+            "name": "GITHUB_TOKEN"
+          },
+          {
+            "value": "{ai_search_endpoint}",
+            "variables": {
+              "ai_search_endpoint": {
+                "description": "Your Azure AI Search endpoint (https://<service>.search.windows.net/). Required for knowledge tools."
+              }
+            },
+            "name": "AZURE_AI_SEARCH_ENDPOINT"
+          },
+          {
+            "value": "{ai_search_api_version}",
+            "variables": {
+              "ai_search_api_version": {
+                "description": "API version (defaults to 2025-03-01-preview)."
+              }
+            },
+            "name": "AZURE_AI_SEARCH_API_VERSION"
+          },
+          {
+            "value": "{search_auth_method}",
+            "variables": {
+              "search_auth_method": {
+                "description": "Authentication method: 'service-principal' or 'api-search-key'."
+              }
+            },
+            "name": "SEARCH_AUTHENTICATION_METHOD"
+          },
+          {
+            "value": "{azure_tenant_id}",
+            "variables": {
+              "azure_tenant_id": {
+                "description": "Required if using service-principal auth."
+              }
+            },
+            "name": "AZURE_TENANT_ID"
+          },
+          {
+            "value": "{azure_client_id}",
+            "variables": {
+              "azure_client_id": {
+                "description": "Required if using service-principal auth."
+              }
+            },
+            "name": "AZURE_CLIENT_ID"
+          },
+          {
+            "value": "{azure_client_secret}",
+            "variables": {
+              "azure_client_secret": {
+                "description": "Required if using service-principal auth.",
+                "isSecret": true
+              }
+            },
+            "name": "AZURE_CLIENT_SECRET"
+          },
+          {
+            "value": "{ai_search_api_key}",
+            "variables": {
+              "ai_search_api_key": {
+                "description": "Required if using api-search-key auth.",
+                "isSecret": true
+              }
+            },
+            "name": "AZURE_AI_SEARCH_API_KEY"
+          },
+          {
+            "value": "{eval_data_dir}",
+            "variables": {
+              "eval_data_dir": {
+                "description": "Path to JSONL datasets for evaluation tools."
+              }
+            },
+            "name": "EVAL_DATA_DIR"
+          },
+          {
+            "value": "{az_openai_endpoint}",
+            "variables": {
+              "az_openai_endpoint": {
+                "description": "Endpoint for text-quality evaluators (optional)."
+              }
+            },
+            "name": "AZURE_OPENAI_ENDPOINT"
+          },
+          {
+            "value": "{az_openai_api_key}",
+            "variables": {
+              "az_openai_api_key": {
+                "description": "API key for the above endpoint (optional).",
+                "isSecret": true
+              }
+            },
+            "name": "AZURE_OPENAI_API_KEY"
+          },
+          {
+            "value": "{az_openai_deployment}",
+            "variables": {
+              "az_openai_deployment": {
+                "description": "Deployment name (e.g., gpt-4o) used by evaluators (optional)."
+              }
+            },
+            "name": "AZURE_OPENAI_DEPLOYMENT"
+          },
+          {
+            "value": "{az_openai_api_version}",
+            "variables": {
+              "az_openai_api_version": {
+                "description": "API version for Azure OpenAI (optional)."
+              }
+            },
+            "name": "AZURE_OPENAI_API_VERSION"
+          },
+          {
+            "value": "{ai_project_endpoint}",
+            "variables": {
+              "ai_project_endpoint": {
+                "description": "Azure AI Project endpoint for agent tools (optional)."
+              }
+            },
+            "name": "AZURE_AI_PROJECT_ENDPOINT"
+          }
+        ],
+        "identifier": "run-azure-ai-foundry-mcp",
+        "packageArguments": [
+          {
+            "format": "string",
+            "name": "--envFile",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "value": "{env_file_path}",
+            "variables": {
+              "env_file_path": {
+                "description": "Path to a .env file to load (e.g., ${workspaceFolder}/.env)."
+              }
+            },
+            "type": "positional"
+          }
+        ],
+        "registryType": "pypi",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "name": "--prerelease=allow",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "name": "--from",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "git+https://github.com/azure-ai-foundry/mcp-foundry.git",
+            "type": "positional"
+          }
+        ],
+        "runtimeHint": "uvx",
+        "transport": {
+          "type": "stdio"
+        }
+      }
+    ],
+    "repository": {
+      "id": "952560918",
+      "source": "github",
+      "url": "https://github.com/azure-ai-foundry/mcp-foundry"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "A set of tools to connect to AI agents, to allow them to use Todoist on a user's behalf.",
+    "name": "net.todoist/todoist-ai",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://ai.todoist.net/mcp"
+      }
+    ],
+    "repository": {
+      "id": "987716578",
+      "source": "github",
+      "url": "https://github.com/Doist/todoist-ai"
+    },
+    "version": "0.0.1-seed",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Manage and interact with the Dynatrace Platform for real-time observability and monitoring.",
+    "name": "com.github/dynatrace-mcp",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{dt_environment}",
+            "variables": {
+              "dt_environment": {
+                "description": "Dynatrace Platform URL (e.g., https://abc12345.apps.dynatrace.com \u2014 not classic live.dynatrace.com).",
+                "isRequired": true
+              }
+            },
+            "name": "DT_ENVIRONMENT"
+          },
+          {
+            "value": "{dt_platform_token}",
+            "variables": {
+              "dt_platform_token": {
+                "description": "Dynatrace Platform Token (recommended auth).",
+                "isSecret": true
+              }
+            },
+            "name": "DT_PLATFORM_TOKEN"
+          }
+        ],
+        "identifier": "@dynatrace-oss/dynatrace-mcp-server",
+        "registryType": "npm",
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "971357826",
+      "source": "github",
+      "url": "https://github.com/dynatrace-oss/dynatrace-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Access Hugging Face models, datasets, Spaces, papers, collections via MCP.",
+    "name": "co.huggingface/hf-mcp-server",
+    "remotes": [
+      {
+        "type": "sse",
+        "url": "https://huggingface.co/mcp?login"
+      }
+    ],
+    "repository": {
+      "id": "978636614",
+      "source": "github",
+      "url": "https://github.com/huggingface/hf-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Provides access to OpenTelemetry traces and metrics through Logfire.",
+    "name": "com.github/logfire-mcp",
+    "packages": [
+      {
+        "identifier": "logfire-mcp",
+        "packageArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "{logfire_token}",
+            "variables": {
+              "logfire_token": {
+                "description": "Pydantic Logfire read token (project-specific)",
+                "isRequired": true,
+                "isSecret": true
+              }
+            },
+            "name": "--read-token",
+            "type": "named"
+          },
+          {
+            "format": "string",
+            "value": "{logfire_base_url}",
+            "variables": {
+              "logfire_base_url": {
+                "description": "Self-hosted Logfire base URL (omit for cloud)"
+              }
+            },
+            "name": "--base-url",
+            "type": "named"
+          }
+        ],
+        "registryType": "pypi",
+        "runtimeHint": "uvx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "v0.6.0"
+      }
+    ],
+    "repository": {
+      "id": "943883428",
+      "source": "github",
+      "url": "https://github.com/pydantic/logfire-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Interact with Azure Kubernetes Service (AKS) from MCP clients.",
+    "name": "com.github/aks-mcp",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{azure_tenant_id}",
+            "variables": {
+              "azure_tenant_id": {
+                "description": "For service principal / WI auth."
+              }
+            },
+            "name": "AZURE_TENANT_ID"
+          },
+          {
+            "value": "{azure_client_id}",
+            "variables": {
+              "azure_client_id": {
+                "description": "Service principal or managed identity client ID."
+              }
+            },
+            "name": "AZURE_CLIENT_ID"
+          },
+          {
+            "value": "{azure_client_secret}",
+            "variables": {
+              "azure_client_secret": {
+                "description": "Service principal client secret.",
+                "isSecret": true
+              }
+            },
+            "name": "AZURE_CLIENT_SECRET"
+          },
+          {
+            "value": "{azure_federated_token_file}",
+            "variables": {
+              "azure_federated_token_file": {
+                "description": "Workload Identity token file path."
+              }
+            },
+            "name": "AZURE_FEDERATED_TOKEN_FILE"
+          },
+          {
+            "value": "{azure_subscription_id}",
+            "variables": {
+              "azure_subscription_id": {
+                "description": "Optional: sets active subscription."
+              }
+            },
+            "name": "AZURE_SUBSCRIPTION_ID"
+          },
+          {
+            "value": "{azure_managed_identity}",
+            "variables": {
+              "azure_managed_identity": {
+                "description": "Set to 'system' to use system-assigned MI."
+              }
+            },
+            "name": "AZURE_MANAGED_IDENTITY"
+          }
+        ],
+        "identifier": "ghcr.io/azure/aks-mcp",
+        "packageArguments": [
+          {
+            "format": "string",
+            "value": "stdio",
+            "name": "--transport",
+            "type": "named"
+          }
+        ],
+        "registryType": "docker",
+        "runtimeArguments": [
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "run",
+            "type": "positional"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "-i",
+            "type": "positional"
+          },
+          {
+            "format": "string",
+            "value": "--rm",
+            "type": "positional"
+          },
+          {
+            "format": "string",
+            "isRequired": true,
+            "value": "ghcr.io/azure/aks-mcp:latest",
+            "type": "positional",
+            "valueHint": "image"
+          }
+        ],
+        "runtimeHint": "docker",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "972374392",
+      "source": "github",
+      "url": "https://github.com/Azure/aks-mcp"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  },
+  {
+    "description": "Postman's MCP server connects AI agents, assistants, and chatbots directly to your APIs on Postman. Use natural language to prompt AI to automate work across your Postman collections, environments, workspaces, and more.",
+    "name": "com.github/postman-mcp-server",
+    "packages": [
+      {
+        "environmentVariables": [
+          {
+            "value": "{api_key}",
+            "variables": {
+              "api_key": {
+                "description": "Your API key for the service",
+                "isRequired": true,
+                "isSecret": true
+              }
+            },
+            "name": "POSTMAN_API_KEY"
+          }
+        ],
+        "identifier": "@postman/postman-mcp-server",
+        "registryType": "npm",
+        "runtimeHint": "npx",
+        "transport": {
+          "type": "stdio"
+        },
+        "version": "1.0.0"
+      }
+    ],
+    "repository": {
+      "id": "999484455",
+      "source": "github",
+      "url": "https://github.com/postmanlabs/postman-mcp-server"
+    },
+    "version": "1.0.0",
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"
+  }
+]
